@@ -1,9 +1,4 @@
-// El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
 let amigos = [];
-// capturar el valor del campo de entrada
-//validad la entrada, si esta vacio alerta "por favor inserte un nombre"
-//si el nombre es valido almacenarlo
-//limpiar el campo de entrada
 function generarListaAmigos () {
     const ul = document.getElementById("listaAmigos");
     ul.innerHTML = "";
@@ -13,7 +8,7 @@ function generarListaAmigos () {
         ul.appendChild(li)
     }
 
-}
+};
 function agregarAmigo () {
     const amigo = document.getElementById("amigo").value;
     if (amigo == "") {
@@ -24,3 +19,16 @@ function agregarAmigo () {
         generarListaAmigos()
     }
 };
+function sortearAmigo () {
+    if (amigos.length <= 1) {
+        alert("Deben ser al menos 2 amigos")
+    } else {
+        const indiceAleatorio = Math.floor(Math.random() * amigos.length);
+        const nombreAleatorio = amigos[indiceAleatorio];
+        const ul = document.getElementById("resultado");
+        ul.innerHTML = "";
+        const li = document.createElement("li");
+       li.textContent = nombreAleatorio;
+        ul.appendChild(li)
+    }
+}
